@@ -89,7 +89,8 @@ gulp.task('extract-editor-src', ['clean-editor-src'], function () {
 		compilerOptions: {
 			module: 2, // ModuleKind.AMD
 		},
-		shakeLevel: 2, // 0-Files, 1-InnerFile, 2-ClassMembers
+		// had to set shakelevel from 2 to 1 else would not run gulp editor-distro command to the end, see https://github.com/Microsoft/vscode/issues/58051
+		shakeLevel: 1, // 0-Files, 1-InnerFile, 2-ClassMembers
 		importIgnorePattern: /^vs\/css!/,
 		destRoot: path.join(root, 'out-editor-src')
 	});
