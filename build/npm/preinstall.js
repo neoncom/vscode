@@ -12,7 +12,7 @@ if (major < 8) {
 	err = true;
 }
 
-if (!/yarn\.js$|yarnpkg$/.test(process.env['npm_execpath'])) {
+if (process.env.IGNOREYARNWARNING !== 'true' && !/yarn\.js$|yarnpkg$/.test(process.env['npm_execpath'])) {
 	console.error('\033[1;31m*** Please use yarn to install dependencies.\033[0;0m');
 	err = true;
 }
