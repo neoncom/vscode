@@ -214,6 +214,8 @@ class EditorModelManager extends Disposable {
 		this._proxy = proxy;
 		this._modelService = modelService;
 
+		keepIdleModels = true;
+
 		if (!keepIdleModels) {
 			let timer = new IntervalTimer();
 			timer.cancelAndSet(() => this._checkStopModelSync(), Math.round(STOP_SYNC_MODEL_DELTA_TIME_MS / 2));
